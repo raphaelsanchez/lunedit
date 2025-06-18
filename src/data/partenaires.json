@@ -1,0 +1,43 @@
+[
+    {
+        "alt": "logo-chêne",
+        "path": "/src/assets/images/chene.jpg"
+    },
+    {
+        "alt": "logo-larousse",
+        "path": "/src/assets/images/larousse.jpg"
+    },
+    {
+        "alt": "logo-assimil",
+        "path": "/src/assets/images/assimil.png"
+    },
+    {
+        "alt": "logo-editions-prisma",
+        "path": "/src/assets/images/editions-prisma.jpg"
+    },
+    {
+        "alt": "logo-phaidon",
+        "path": "/src/assets/images/phaidon.jpg"
+    },
+    {
+        "alt": "logo-fleurus",
+        "path": "/src/assets/images/fleurus.jpg"
+    },
+    {
+        "alt": "logo-gallimard-jeunesse",
+        "path": "/src/assets/images/gallimard-jeunesse.jpeg"
+    },
+    {
+        "alt": "logo-national-geographic",
+        "path": "/src/assets/images/national-geographic.png"
+    },
+    {
+        "alt": "logo-E.P.A.",
+        "path": "/src/assets/images/E.P.A.png"
+    },
+    {
+        "alt": "logo-gerfaut",
+        "path": "/src/assets/images/gerfaut.png"
+    }
+
+]
