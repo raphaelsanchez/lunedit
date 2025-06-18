@@ -1,3 +1,11 @@
+---
+import Footer from "../components/Footer.astro";
+import LanguageToggle from "../components/LanguageToggle.astro";
+import MailButton from "../components/MailButton.astro";
+import SocialNetworks from "../components/SocialNetworks.astro";
+import Header from "../components/Header.astro";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +16,12 @@
     <title>Astro Basics</title>
   </head>
   <body>
+    <Header />
+    <LanguageToggle />
+    <SocialNetworks />
+    <MailButton />
     <slot />
+    <Footer />
   </body>
 </html>
 
