@@ -6,8 +6,8 @@ const { address, mail, phone } = data.contact;
 
 ---
 <footer class="bg-primary text-foreground-accent ">
-    <div class="py-16 max-w-7xl mx-auto">
-        <h2 class="uppercase font-bold text-3xl text-center mb-14">Contactez-nous</h2>
+    <div class="pt-16 pb-4 gap-12 flex flex-col max-w-7xl mx-auto">
+        <h2 class="uppercase font-bold text-3xl text-center">Contactez-nous</h2>
         <div class="flex justify-between items-center">
             <div class="flex items-center gap-10">
                 <img src="/src/assets/images/jaguar.png" alt="illustration-jaguar" class="h-32 w-auto" />
@@ -24,5 +24,10 @@ const { address, mail, phone } = data.contact;
                 <SocialNetwork items={data.social} />
             </div>
         </div>
+        <div class="flex justify-center items-center">
+            <p>&copy; Lunedit 2025 - </p>
+            <a href="/mentions">Mentions légales</a>
+        </div>
+        
     </div>
 </footer>
