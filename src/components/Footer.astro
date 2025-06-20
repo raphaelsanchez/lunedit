@@ -1,5 +1,6 @@
 ---
 import SocialNetwork from "./SocialNetwork.astro";
+import ContactInfo from "./ContactInfo.astro";
 import data from "../data/infoGeneral.json";
 import { Image } from "astro:assets";
 import jaguar from "../assets/images/jaguar.png";
@@ -31,53 +32,22 @@ const { address, mail, phone } = data.contact;
           class="h-24 w-auto shrink-0 md:h-32"
           loading="lazy"
         />
-        <address
-          class="flex flex-col items-center text-center not-italic md:items-start md:text-left"
-        >
-          <p class="mb-4 text-xl font-bold uppercase">Lunedit</p>
-          {
-            address && (
-              <p class="mb-2">
-                <span class="sr-only">Adresse :</span>
-                {address}
-              </p>
-            )
-          }
-          {
-            mail && (
-              <p class="mb-2">
-                <span class="sr-only">Email :</span>
-                <a
-                  href={`mailto:${mail}`}
-                  class="hover:text-secondary focus:ring-secondary focus:ring-offset-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                  aria-label={`Envoyer un email à ${mail}`}
-                >
-                  {mail}
-                </a>
-              </p>
-            )
-          }
-          {
-            phone && (
-              <p>
-                <span class="sr-only">Téléphone :</span>
-                <a
-                  href={`tel:${phone.replace(/\s/g, "")}`}
-                  class="hover:text-secondary focus:ring-secondary focus:ring-offset-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                  aria-label={`Appeler ${phone}`}
-                >
-                  {phone}
-                </a>
-              </p>
-            )
-          }
-        </address>
+        <ContactInfo
+          address={address}
+          mail={mail}
+          phone={phone}
+          companyName="Lunedit"
+        />
       </div>
 
-      <div class="flex flex-col items-center gap-4">
-        <h2 class="font-bold uppercase">Retrouvez-nous sur</h2>
-        <SocialNetwork items={data.social} />
-      </div>
+      {
+        data.social.length > 0 && (
+          <div class="flex flex-col items-center gap-4">
+            <h2 class="font-bold uppercase">Retrouvez-nous sur</h2>
+            <SocialNetwork items={data.social} />
+          </div>
+        )
+      }
     </div>
 
     <div class="text-center">
