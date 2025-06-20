@@ -1,15 +1,14 @@
 ---
 const currentLang = Astro.url.pathname.startsWith("/fr") ? "fr" : "en";
 const switchLang =
-  currentLang === "en"
-    ? "/fr" + Astro.url.pathname.slice(3)
-    : "/en" + Astro.url.pathname.slice(3);
-const label = currentLang === "en" ? "🇬🇧 English" : "🇫🇷 Français";
-const altLabel = currentLang === "en" ? "🇫🇷 Français" : "🇬🇧 English";
+  currentLang === "fr"
+    ? "/en" + Astro.url.pathname.slice(3)
+    : "/fr" + Astro.url.pathname.slice(3);
+const altLabel = currentLang === "fr" ? "🇬🇧 English" : "🇫🇷 Français";
 ---
 
 <div class="absolute left-2 top-2">
-  <a href={switchLang} class="rounded border px-2 py-1 transition">
+  <a href={switchLang} class="rounded border px-3 py-1 transition">
     {altLabel}
   </a>
 </div>
