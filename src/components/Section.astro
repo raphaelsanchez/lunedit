@@ -1,0 +1,12 @@
+---
+const { title, button, center} = Astro.props;
+---
+<div class={`p-12 flex flex-col w-[450px] ${center ? 'mx-auto items-center text-center' : ''}`}>
+    <h2 class="text-foreground text-2xl uppercase font-extrabold mb-5">{title}</h2>
+    <span class="w-10 block h-0.5 bg-foreground mb-5"></span>
+    <slot />
+    <div class={`mt-5 ${button ? 'block':'hidden'}`}>
+        <!-- ajout du composant ui button -->
+        button
+    </div>
+</div>
