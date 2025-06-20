@@ -1,25 +1,25 @@
 {
-    "site": {
-        "name": "Lunedit Packaging éditorial Paris",
-        "description": "Lunedit vous accompagne dans vos projets de livres illustrés, de la conception à l’impression. Forts de 20 ans d’experience, nous prenons en charge la conception, la coordination éditoriale ou la traduction de vos projets.",
-        "url": "https://www.lunedit.com/",
-        "logo": "/src/assets/images/logo-lunedit.png"
+  "site": {
+    "name": "LUNEDIT | Packaging éditorial Rouen / Paris",
+    "description": "Lunedit vous accompagne dans vos projets de livres illustrés, de la conception à l’impression. Forts de 20 ans d’experience, nous prenons en charge la conception, la coordination éditoriale ou la traduction de vos projets.",
+    "url": "https://www.lunedit.com/",
+    "logo": "/src/assets/images/logo-lunedit.png"
+  },
+  "contact": {
+    "mail": "Lunedit@gmail.com",
+    "address": "36 rue Molière, 76000 Rouen, France",
+    "phone": "+33 (0)6 45 45 82 97"
+  },
+  "social": [
+    {
+      "label": "Linkedin",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/lucienedellec/"
     },
-    "contact": {
-        "mail": "Lunedit@gmail.com",
-        "address": "36 rue Molière, 76000 Rouen, France",
-        "phone": "+33 (0)6 45 45 82 97"
-    },
-    "social": [
-        {
-            "label": "Linkedin",
-            "icon": "linkedin",
-            "url": "https://www.linkedin.com/in/lucienedellec/"
-        },
-        {
-            "label": "Instagram",
-            "icon": "instagram",
-            "url": "https://www.instagram.com/lunedit_packaging/"
-        }
-    ]
+    {
+      "label": "Instagram",
+      "icon": "instagram",
+      "url": "https://www.instagram.com/lunedit_packaging/"
+    }
+  ]
 }
