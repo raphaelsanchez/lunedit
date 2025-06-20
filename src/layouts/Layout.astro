@@ -5,6 +5,60 @@ import "../styles/global.css";
 import infoGeneral from "../data/infoGeneral.json";
 
 const { address, mail, phone } = infoGeneral.contact;
+
+// Fonction pour nettoyer l'adresse et extraire les composants
+const parseAddress = (addressString: string) => {
+  if (!addressString) return null;
+
+  // Extraction basique des composants d'adresse
+  const parts = addressString.split(",");
+  if (parts.length >= 2) {
+    return {
+      streetAddress: parts[0].trim(),
+      addressLocality: parts[1].trim(),
+      postalCode: parts[1].match(/\d{5}/)?.[0] || "76000",
+      addressCountry: "FR",
+    };
+  }
+
+  return {
+    streetAddress: addressString,
+    addressLocality: "Rouen",
+    postalCode: "76000",
+    addressCountry: "FR",
+  };
+};
+
+// Construction des données structurées avec vérifications
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: infoGeneral.site?.name || "Lunedit",
+  url: infoGeneral.site?.url || "https://www.lunedit.com/",
+  description:
+    infoGeneral.site?.description || "Packaging éditorial Rouen / Paris",
+  ...(infoGeneral.site?.logo && {
+    logo: `${infoGeneral.site.url || "https://www.lunedit.com/"}${infoGeneral.site.logo}`,
+  }),
+  ...((phone || mail) && {
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      ...(phone && { telephone: phone }),
+      ...(mail && { email: mail }),
+    },
+  }),
+  ...(address && {
+    address: {
+      "@type": "PostalAddress",
+      ...parseAddress(address),
+    },
+  }),
+  ...(infoGeneral.social &&
+    infoGeneral.social.length > 0 && {
+      sameAs: infoGeneral.social.map((social) => social.url).filter(Boolean),
+    }),
+};
 ---
 
 <!doctype html>
@@ -12,36 +66,19 @@ const { address, mail, phone } = infoGeneral.contact;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{infoGeneral.site.name}</title>
+    <title>{infoGeneral.site?.name || "Lunedit"}</title>
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={infoGeneral.site.description} />
+    <meta
+      name="description"
+      content={infoGeneral.site?.description ||
+        "Packaging éditorial Rouen / Paris"}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Données structurées pour le SEO -->
     <script
       type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "Lunedit",
-        url: infoGeneral.site.url,
-        logo: `${infoGeneral.site.url}${infoGeneral.site.logo}`,
-        description: infoGeneral.site.description,
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: phone,
-          contactType: "customer service",
-          email: mail,
-        },
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: address,
-          addressLocality: "Rouen",
-          postalCode: "76000",
-          addressCountry: "FR",
-        },
-        sameAs: infoGeneral.social.map((social) => social.url),
-      })}
+      set:html={JSON.stringify(structuredData)}
     />
   </head>
   <body>
