@@ -1,9 +1,10 @@
 ---
-
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import infoGeneral from "../data/infoGeneral.json";
+
+const { address, mail, phone } = infoGeneral.contact;
 ---
 
 <!doctype html>
@@ -15,9 +16,36 @@ import infoGeneral from "../data/infoGeneral.json";
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={infoGeneral.site.description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Données structurées pour le SEO -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Lunedit",
+        url: infoGeneral.site.url,
+        logo: `${infoGeneral.site.url}${infoGeneral.site.logo}`,
+        description: infoGeneral.site.description,
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: phone,
+          contactType: "customer service",
+          email: mail,
+        },
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "36 rue Molière",
+          addressLocality: "Rouen",
+          postalCode: "76000",
+          addressCountry: "FR",
+        },
+        sameAs: infoGeneral.social.map((social) => social.url),
+      })}
+    />
   </head>
   <body>
-    <Header/>
+    <Header />
     <slot />
     <Footer />
   </body>
