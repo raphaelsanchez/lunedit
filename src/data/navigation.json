@@ -1,0 +1,20 @@
+{
+    "navigation": [
+        {
+        "label": "Lunedit",
+        "url": "#top-page"
+        },
+        {
+        "label": "A propos",
+        "url": "#a-propos"
+        },
+        {
+        "label": "Dernièrement",
+        "url": "#dernierement"
+        },
+        {
+        "label": "Contact",
+        "url": "mailto: Lunedit@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+---
+import NavLink from "./NavLink.astro";
+import SocialNetwork from "./SocialNetwork.astro";
+import Burger from "./ui/Burger.astro";
+import data from "../data/infoGeneral.json";
+
+const { logo } = data.site;
+---
+<header id="top-page" class="bg-secondary h-18 items-center flex w-full justify-between lg:px-32 px-16  max-lg:relative lg:fixed z-999">
+    <div>
+        <a href="/" class="w-24 h-auto">
+            <img src={logo} alt="Logo de Lunedit" class="h-10 w-auto" />
+        </a>
+    </div>
+    <Burger id="menu-burger" />
+    <NavLink id="nav" />
+    
+    
+    <script>
+        const burgerMenu = document.querySelector('#menu-burger');
+        const nav = document.querySelector('#nav');
+        if (burgerMenu && nav) {
+            burgerMenu.addEventListener('click', () => {
+                nav.classList.toggle('hidden');
+            });
+        }
+    </script>
+</header>
