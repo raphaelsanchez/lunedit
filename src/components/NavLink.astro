@@ -1,0 +1,28 @@
+---
+import data from '../data/navigation.json';
+
+const { navigation } = data;
+
+import type { NavLinkType } from "../types";
+
+---
+{ navigation &&(
+    <nav>
+        <div
+            class="flex gap-16"
+        >
+            
+            {navigation.map((item: NavLinkType) => (
+                <a
+                    href={item.url}
+                    aria-label={`Aller voir${item.label}`}
+                    >
+                        <span class="text-background hover:text-primary text-lg uppercase font-bold duration-200 ease-in-out"
+                            >{item.label}
+                            </span>
+                </a>
+            ))
+            }
+        </div>
+    </nav>
+)}
