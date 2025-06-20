@@ -5,16 +5,15 @@ const partenaires = Data;
 
 import type { PartenairesType } from "../types";
 ---
-<section class="bg-background pb-15 pt-10 px-60 justify-items-center">
-    <h2 class="uppercase font-extrabold font-heading text-foreground text-base py-8">Ils nous font confiance...</h2>
-    <div class="flex flex-wrap gap-5 justify-center items-center ">
-        {
-            partenaires &&
-            partenaires.map((item: PartenairesType) => (
-                <div class="mb-7">
-                    <img class="h-16 w-auto object-contain" src={item.path} alt={item.alt} />
-                </div>
-            ))
-        }
-    </div>
-</section>
+{partenaires && (
+  <section class="bg-background pb-15 pt-10 max-w-7xl mx-auto justify-items-center">
+      <h2 class="uppercase font-extrabold font-heading text-foreground text-base py-8">Ils nous font confiance...</h2>
+      <div class="flex flex-wrap gap-5 justify-center items-center ">
+          {partenaires.map((item: PartenairesType) => (
+              <div class="mb-7">
+                  <img class="h-16 w-auto object-contain" src={item.path} alt={item.alt} />
+              </div>
+          ))}
+      </div>
+  </section>
+)}
