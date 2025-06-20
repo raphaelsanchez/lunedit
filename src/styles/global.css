@@ -2,20 +2,20 @@
 
 @theme {
   /* Fonts */
-  --font-base: 'system-ui', sans-serif;
-  --font-heading: 'inter', sans-serif;
+  --font-base: "system-ui", sans-serif;
+  --font-heading: "inter", sans-serif;
 
   /* Colors */
-  --color-primary: #ffe500 ;
+  --color-primary: #ffe500;
   --color-primary-foreground: #243954;
   --color-secondary: #4ec2b2;
   --color-secondary-foreground: #ffffff;
-  --color-secondary-accent: #109eeb ;
+  --color-secondary-accent: #109eeb;
   --color-secondary-accent-dark: #0f6d99;
 
-  --color-background: var(--color-neutral-50);
+  --color-background: #ffffff;
 
-  --color-foreground: #243954 ;
+  --color-foreground: #243954;
   --color-foreground-accent: #404040;
   --color-button: #323232;
 }

@@ -1,0 +1,33 @@
+---
+interface ButtonProps {
+  variant?: "primary" | "secondary" | "tertiary";
+  size?: "small" | "medium" | "large";
+  class?: string;
+  href?: string;
+}
+
+const {
+  variant = "primary",
+  class: $class = "",
+  href,
+}: ButtonProps = Astro.props;
+
+function cls(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
+const base =
+  "inline-flex items-center justify-center font-medium text-center no-underline select-none rounded";
+
+const variants = {
+  primary: "bg-black text-white hover:bg-black/90",
+  secondary: "bg-gray-200 text-black hover:bg-gray-300",
+  tertiary: "border border-black text-black hover:bg-black hover:text-white",
+};
+
+const Component = href ? "a" : "button";
+---
+
+<Component class={cls(base, variants[variant], $class)} href={href}>
+  <slot />
+</Component>
