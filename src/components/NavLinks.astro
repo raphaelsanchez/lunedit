@@ -1,0 +1,28 @@
+---
+import data from "../data/navigation.json";
+
+const { navigation } = data;
+
+import type { NavLinkType } from "../types";
+---
+
+{
+  navigation && (
+    <nav aria-label="Navigation principale" class="flex-1">
+      <ul class="justify-center gap-4 lg:flex" role="menubar">
+        {navigation.map((item: NavLinkType) => (
+          <li class="max-lg:flex-col">
+            <a
+              href={item.url}
+              aria-label={`Aller voir${item.label}`}
+              role="menuitem"
+              class="text-secondary-foreground hover:text-primary focus-visible:outline-primary rounded-xs inline-block px-4 py-2 text-xl font-bold uppercase tracking-wide ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 lg:text-base"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

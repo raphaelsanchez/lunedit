@@ -1,26 +1,28 @@
 ---
-const socialLinks = {
-  instagram: "",
-  linkedin: "",
-};
+import { Icon } from "astro-icon/components";
+
+const { items, class: className } = Astro.props;
+
+import type { SocialItemType } from "../types";
 ---
 
-<div class="fixed right-2 top-1/2 z-50 -translate-y-1/2 transform space-y-4">
-  <a
-    href={socialLinks.instagram}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    class="flex h-8 w-8 items-center justify-center rounded-full"
-  >
-  </a>
-  <a
-    href={socialLinks.linkedin}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    class="flex h-8 w-8 items-center justify-center rounded-full"
-  >
-    in
-  </a>
-</div>
+{
+  items && items.length > 0 && (
+    <ul class="flex gap-1 max-lg:justify-center">
+      {items.map(({ label, url, icon }: SocialItemType) => (
+        <li>
+          <a
+            class="hover:text-secondary focus-visible:outline-primary rounded-xs inline-block p-2 text-2xl focus-visible:outline-2 focus-visible:outline-offset-2"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`Retrouvez-moi sur ${label}`}
+            aria-label={`Retrouvez-moi sur ${label}`}
+          >
+            {icon ? <Icon name={icon} size={24} aria-hidden /> : label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
