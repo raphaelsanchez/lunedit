@@ -1,36 +1,68 @@
 ---
-import SocialNetworks from "./SocialNetworks.astro";
+
+import SocialNetwork from "./SocialNetwork.astro";
+import ContactInfo from "./ContactInfo.astro";
+
 import data from "../data/infoGeneral.json";
+import { Image } from "astro:assets";
+import jaguar from "../assets/images/jaguar.png";
 
 const { address, mail, phone } = data.contact;
 ---
 
-<footer class="bg-primary text-foreground-accent">
-  <div class="mx-auto flex max-w-7xl flex-col gap-12 pb-4 pt-16">
-    <h2 class="text-center text-3xl font-bold uppercase">Contactez-nous</h2>
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-10">
-        <img
-          src="/src/assets/images/jaguar.png"
-          alt="illustration-jaguar"
-          class="h-32 w-auto"
+
+<footer
+  class="bg-primary text-foreground-accent"
+  role="contentinfo"
+  aria-label="Pied de page"
+>
+  <div
+    class="mx-auto flex max-w-7xl flex-col gap-16 px-4 pb-8 pt-12 md:gap-24 md:pb-4 md:pt-16"
+  >
+    <h2 class="text-center text-2xl font-bold uppercase md:text-3xl">
+      Contactez-nous
+    </h2>
+
+    <div
+      class="flex flex-col justify-between gap-8 md:flex-row md:items-center md:gap-12"
+    >
+      <div
+        class="flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-10"
+      >
+        <Image
+          src={jaguar}
+          alt="Logo Lunedit - illustration jaguar"
+          class="h-24 w-auto shrink-0 md:h-32"
+          loading="lazy"
         />
-        <div class="flex flex-col">
-          <h3 class="mb-4 text-xl font-bold uppercase">Lunedit</h3>
-          <p>{address}</p>
-          <p>{mail}</p>
-          <p>{phone}</p>
-        </div>
+        <ContactInfo
+          address={address}
+          mail={mail}
+          phone={phone}
+          companyName="Lunedit"
+        />
       </div>
 
-      <div class="flex flex-col items-center gap-4">
-        <h2 class="font-bold uppercase">Retrouvez-nous sur</h2>
-        <SocialNetworks items={data.social} size={42} />
-      </div>
+      {
+        data.social.length > 0 && (
+          <div class="flex flex-col items-center gap-4">
+            <h2 class="font-bold uppercase">Retrouvez-nous sur</h2>
+            <SocialNetwork items={data.social} />
+          </div>
+        )
+      }
     </div>
-    <div class="flex items-center justify-center">
-      <p>&copy; Lunedit 2025 -</p>
-      <a href="/mentions-legales">Mentions légales</a>
+
+    <div class="text-center">
+      <span>&copy; Lunedit 2025</span>
+      <span>-</span>
+      <a
+        href="/mentions-legales"
+        class="hover:text-secondary focus:ring-secondary focus:ring-offset-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+        aria-label="Consulter les mentions légales"
+      >
+        Mentions légales
+      </a>
     </div>
   </div>
 </footer>
