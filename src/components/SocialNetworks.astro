@@ -1,18 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { items, class: className } = Astro.props;
+const { items } = Astro.props;
 
 import type { SocialItemType } from "../types";
 ---
 
 {
   items && items.length > 0 && (
-    <ul class="flex gap-1 max-lg:justify-center">
+    <ul class="flex items-center gap-1 max-lg:justify-center">
       {items.map(({ label, url, icon }: SocialItemType) => (
         <li>
           <a
-            class="focus-visible:outline-primary rounded-xs hover:scale-120 inline-block p-2 text-2xl transition-transform focus-visible:outline-2 focus-visible:outline-offset-2"
+            class="rounded-xs hover:scale-120 block p-2 text-2xl transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
             href={url}
             target="_blank"
             rel="noopener noreferrer"
