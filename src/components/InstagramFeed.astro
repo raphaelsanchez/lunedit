@@ -1,15 +1,26 @@
 ---
 import Button from "../components/ui/Button.astro";
+import { Image } from "astro:assets";
+
+// Import des images optimisées
+import insta300FemmesPeintres from "../assets/images/posts/insta-300-femmes-peintres.jpg";
+import instaYokoOno from "../assets/images/posts/insta-yoko-ono.jpg";
+import instaEnglishCooking from "../assets/images/posts/insta-english-cooking.jpg";
+import instaMerciPhaidon from "../assets/images/posts/insta-merci-phaidon.jpg";
+import instaHappyNewYear from "../assets/images/posts/insta-happy-new-year.jpg";
+import instaDicteeCoquine from "../assets/images/posts/insta-dictee-coquine.jpg";
+import instaCuisinePortugal1 from "../assets/images/posts/insta-cuisine-portugal-1.jpg";
+import instaCuisinePortugal2 from "../assets/images/posts/insta-cuisine-portugal-2.jpg";
 
 const images = [
-  "src/assets/images/posts/insta-300-femmes-peintres.jpg",
-  "src/assets/images/posts/insta-yoko-ono.jpg",
-  "src/assets/images/posts/insta-english-cooking.jpg",
-  "src/assets/images/posts/insta-merci-phaidon.jpg",
-  "src/assets/images/posts/insta-happy-new-year.jpg",
-  "src/assets/images/posts/insta-dictee-coquine.jpg",
-  "src/assets/images/posts/insta-cuisine-portugal-1.jpg",
-  "src/assets/images/posts/insta-cuisine-portugal-2.jpg",
+  { src: insta300FemmesPeintres, alt: "300 femmes peintres" },
+  { src: instaYokoOno, alt: "Yoko Ono" },
+  { src: instaEnglishCooking, alt: "English cooking" },
+  { src: instaMerciPhaidon, alt: "Merci Phaidon" },
+  { src: instaHappyNewYear, alt: "Happy New Year" },
+  { src: instaDicteeCoquine, alt: "Dictée coquine" },
+  { src: instaCuisinePortugal1, alt: "Cuisine Portugal 1" },
+  { src: instaCuisinePortugal2, alt: "Cuisine Portugal 2" },
 ];
 ---
 
@@ -24,13 +35,17 @@ const images = [
     <div class="rounded-lg p-4">
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
         {
-          images.map((src) => (
+          images.map(({ src, alt }) => (
             <div class="aspect-[1/1] w-full overflow-hidden rounded-md shadow-sm">
-              <img
+              <Image
                 src={src}
-                alt="Publication Instagram"
+                alt={`Publication Instagram - ${alt}`}
                 class="h-full w-full object-cover"
                 loading="lazy"
+                format="webp"
+                quality={80}
+                widths={[300, 600]}
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
               />
             </div>
           ))
