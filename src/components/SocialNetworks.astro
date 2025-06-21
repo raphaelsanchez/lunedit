@@ -12,7 +12,7 @@ import type { SocialItemType } from "../types";
       {items.map(({ label, url, icon }: SocialItemType) => (
         <li>
           <a
-            class="hover:text-secondary focus-visible:outline-primary rounded-xs inline-block p-2 text-2xl focus-visible:outline-2 focus-visible:outline-offset-2"
+            class="focus-visible:outline-primary rounded-xs hover:scale-120 inline-block p-2 text-2xl transition-transform focus-visible:outline-2 focus-visible:outline-offset-2"
             href={url}
             target="_blank"
             rel="noopener noreferrer"
