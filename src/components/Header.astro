@@ -1,32 +1,55 @@
 ---
-import NavLink from "./NavLink.astro";
-import SocialNetwork from "./SocialNetwork.astro";
+import NavLinks from "./NavLinks.astro";
+import SocialNetworks from "./SocialNetworks.astro";
 import Burger from "./ui/Burger.astro";
 import data from "../data/infoGeneral.json";
+import logoImage from "../assets/images/logo-lunedit.png";
 
-const { logo } = data.site;
+import { Image } from "astro:assets";
 ---
-<header id="top-page" class="bg-secondary w-full py-2 px-4  max-lg:relative lg:fixed z-999">
-    <div class="flex items-center justify-between w-full max-w-7xl mx-auto">
-        <a href="/" class="w-24 h-auto">
-            <img src={logo} alt="Logo de Lunedit" class="h-10 w-auto" />
-        </a>
-        <Burger id="menu-burger"/>
-        <div id="nav" class="flex-1 max-lg:bg-secondary text-white max-lg:absolute max-lg:top-full max-lg:left-0 max-lg:text-center max-lg:justify-center hidden lg:flex max-lg:flex-col max-lg:gap-10 gap-16 max-lg:w-full max-lg:h-auto max-lg:p-8">
-            <NavLink />
-            <SocialNetwork items={data.social} />
-        </div>
-    </div>
+
+<header
+  id="top-page"
+  class="bg-secondary z-50 w-full px-4 py-2 max-lg:relative lg:fixed"
+>
+  <div class="mx-auto flex w-full max-w-7xl items-center justify-between">
+    <a
+      href="/"
+      class="focus-visible:outline-primary rounded focus-visible:outline-2 focus-visible:outline-offset-2"
+      aria-label="Accéder à la page d'accueil"
+    >
+      <Image
+        src={logoImage}
+        width={150}
+        height={52}
+        alt="Logo de Lunedit"
+        class="transition-transform hover:scale-105"
+      />
+    </a>
+
+    <Burger id="menu-burger" />
+    <nav
+      id="nav"
+      class="max-lg:bg-secondary hidden flex-1 gap-16 text-white max-lg:absolute max-lg:left-0 max-lg:top-full max-lg:z-50 max-lg:h-auto max-lg:w-full max-lg:flex-col max-lg:justify-center max-lg:gap-10 max-lg:p-8 max-lg:text-center max-lg:shadow-lg lg:flex"
+      aria-label="Menu principal"
+    >
+      <NavLinks />
+      <SocialNetworks items={data.social} />
+    </nav>
+  </div>
 </header>
 
-
-    
 <script>
-    const burgerMenu = document.querySelector('#menu-burger');
-    const nav = document.querySelector('#nav');
-    if (burgerMenu && nav) {
-        burgerMenu.addEventListener('click', () => {
-            nav.classList.toggle('hidden');
-        });
-    }
+  const burgerMenu = document.querySelector("#menu-burger");
+  const nav = document.querySelector("#nav");
+  if (burgerMenu && nav) {
+    burgerMenu.addEventListener("click", () => {
+      nav.classList.toggle("hidden");
+      // toggle aria-expanded value on burger menu
+      burgerMenu.setAttribute(
+        "aria-expanded",
+        burgerMenu.getAttribute("aria-expanded") === "true" ? "false" : "true"
+      );
+    });
+  }
 </script>
