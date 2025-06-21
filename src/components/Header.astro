@@ -6,23 +6,27 @@ import data from "../data/infoGeneral.json";
 
 const { logo } = data.site;
 ---
-<header id="top-page" class="bg-secondary h-18 items-center flex w-full justify-between lg:px-32 px-16  max-lg:relative lg:fixed z-999">
-    <div>
+<header id="top-page" class="bg-secondary w-full py-2 px-4  max-lg:relative lg:fixed z-999">
+    <div class="flex items-center justify-between w-full max-w-7xl mx-auto">
         <a href="/" class="w-24 h-auto">
             <img src={logo} alt="Logo de Lunedit" class="h-10 w-auto" />
         </a>
+        <Burger id="menu-burger"/>
+        <div id="nav" class="flex-1 max-lg:bg-secondary text-white max-lg:absolute max-lg:top-full max-lg:left-0 max-lg:text-center max-lg:justify-center hidden lg:flex max-lg:flex-col max-lg:gap-10 gap-16 max-lg:w-full max-lg:h-auto max-lg:p-8">
+            <NavLink />
+            <SocialNetwork items={data.social} />
+        </div>
     </div>
-    <Burger id="menu-burger" />
-    <NavLink id="nav" />
-    
-    
-    <script>
-        const burgerMenu = document.querySelector('#menu-burger');
-        const nav = document.querySelector('#nav');
-        if (burgerMenu && nav) {
-            burgerMenu.addEventListener('click', () => {
-                nav.classList.toggle('hidden');
-            });
-        }
-    </script>
 </header>
+
+
+    
+<script>
+    const burgerMenu = document.querySelector('#menu-burger');
+    const nav = document.querySelector('#nav');
+    if (burgerMenu && nav) {
+        burgerMenu.addEventListener('click', () => {
+            nav.classList.toggle('hidden');
+        });
+    }
+</script>
