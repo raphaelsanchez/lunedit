@@ -14,8 +14,10 @@ const images = [
 ---
 
 <section id="dernierement" class="bg-[#4cbcb2] px-4 py-12">
-  <h2 class="text-primary mb-8 text-center text-3xl font-semibold">
-    Dernièrement…
+  <h2
+    class="text-primary font-heading py-8 text-center text-2xl font-extrabold uppercase"
+  >
+    Dernières réalisations
   </h2>
 
   <div>
@@ -27,7 +29,7 @@ const images = [
               <img
                 src={src}
                 alt="Publication Instagram"
-                class="h-full w-full object-cover transition hover:opacity-90"
+                class="h-full w-full object-cover"
                 loading="lazy"
               />
             </div>
@@ -38,11 +40,11 @@ const images = [
       <div class="mt-8 text-center">
         <Button
           href="https://www.instagram.com/lunedit_packaging/"
-          variant="tertiary"
+          variant="primary"
           size="large"
-          class="border-none bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:brightness-110"
+          aria-label="Voir plus de réalisations sur Instagram"
         >
-          Voir plus sur Instagram
+          Plus de réalisations
         </Button>
       </div>
     </div>

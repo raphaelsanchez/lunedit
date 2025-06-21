@@ -11,6 +11,7 @@ const {
   size = "medium",
   class: $class = "",
   href,
+  ...props
 }: ButtonProps = Astro.props;
 
 const sizes = {
@@ -27,9 +28,10 @@ const base =
   "inline-flex items-center justify-center font-medium text-center no-underline select-none rounded-xl";
 
 const variants = {
-  primary: "bg-black text-white hover:bg-black/90",
-  secondary: "bg-gray-200 text-black hover:bg-gray-300",
-  tertiary: "border border-black text-black hover:bg-black hover:text-white",
+  primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
+  outline:
+    "border border-primary text-primary hover:bg-primary hover:text-primary-foreground",
 };
 
 const Component = href ? "a" : "button";
@@ -38,6 +40,7 @@ const Component = href ? "a" : "button";
 <Component
   class={cls(base, variants[variant], sizes[size], $class)}
   href={href}
+  {...props}
 >
   <slot />
 </Component>
