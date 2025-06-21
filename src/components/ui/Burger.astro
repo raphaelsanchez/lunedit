@@ -1,14 +1,38 @@
 ---
 const { id } = Astro.props;
-
 ---
 
 <button
   id={id}
-  class="cursor-pointer lg:hidden"
+  class="hover:bg-background/10 focus-visible:outline-primary cursor-pointer rounded p-2 focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden"
   aria-label="Ouvrir le menu principal"
+  aria-expanded="false"
+  aria-controls="nav"
 >
-  <span class="line mb-2 block h-1 w-8 bg-background"></span>
-  <span class="line mb-2 block h-1 w-8 bg-background"></span>
-  <span class="line mb-2 block h-1 w-8 bg-background"></span>
+  <div class="relative flex h-6 w-6 flex-col justify-center">
+    <span
+      class="line bg-background block h-0.5 w-full origin-center transform transition-all duration-300 ease-in-out"
+    ></span>
+    <span
+      class="line bg-background mt-1.5 block h-0.5 w-full origin-center transform transition-all duration-300 ease-in-out"
+    ></span>
+    <span
+      class="line bg-background mt-1.5 block h-0.5 w-full origin-center transform transition-all duration-300 ease-in-out"
+    ></span>
+  </div>
 </button>
+
+<style>
+  /* Animation pour l'état ouvert du menu */
+  button[aria-expanded="true"] .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+
+  button[aria-expanded="true"] .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  button[aria-expanded="true"] .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+</style>

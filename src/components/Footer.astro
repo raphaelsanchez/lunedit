@@ -1,6 +1,7 @@
 ---
-import SocialNetwork from "./SocialNetwork.astro";
+import SocialNetworks from "./SocialNetworks.astro";
 import ContactInfo from "./ContactInfo.astro";
+
 import data from "../data/infoGeneral.json";
 import { Image } from "astro:assets";
 import jaguar from "../assets/images/jaguar.png";
@@ -44,7 +45,7 @@ const { address, mail, phone } = data.contact;
         data.social.length > 0 && (
           <div class="flex flex-col items-center gap-4">
             <h2 class="font-bold uppercase">Retrouvez-nous sur</h2>
-            <SocialNetwork items={data.social} />
+            <SocialNetworks items={data.social} size={48} />
           </div>
         )
       }
