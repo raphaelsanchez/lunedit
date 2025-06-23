@@ -12,4 +12,8 @@ export default defineConfig({
   },
 
   integrations: [icon()],
+
+  image: {
+    domains: ["localhost", "lunedit.fr"],
+  },
 });
