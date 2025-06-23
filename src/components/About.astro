@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import office from "../assets/images/banner2.jpg";
+---
+
+<section class="bg-primary pb-16 text-gray-900 lg:pb-32">
+  <div class="mx-auto max-w-7xl">
+    <div class="aspect-[16/9] max-w-4xl">
+      <Image src={office} alt="Vue bureau" class="h-full w-full object-cover" />
+    </div>
+
+    <div class="grid md:grid-cols-2">
+      <div class="p-8 lg:p-16">
+        <h2 class="text-2xl font-bold tracking-wide">
+          L'ÉDITION,<br />NOTRE PASSION
+        </h2>
+        <div class="my-4 h-0.5 w-8 bg-black"></div>
+        <p class="mb-6 max-w-prose">
+          Avec 20 ans d’expérience dans l’édition de livres illustrés, en tant
+          qu’éditrice dans le livre pratique, puis à la direction éditoriale de
+          Céladon éditions, Lucie Nédellec a créé LUNEDIT pour répondre au mieux
+          à vos attentes. Nous réaliserons vos livres avec les meilleurs
+          collaborateurs, dans le respect des plannings (même serrés !) et au
+          meilleur prix.
+        </p>
+        <a
+          href="#contact"
+          class="inline-block rounded-full border border-black px-4 py-2 transition hover:bg-black hover:text-yellow-400"
+          >Contactez-nous</a
+        >
+      </div>
+
+      <!-- Bloc "Nous gérons pour vous" -->
+      <div
+        class="mx-4 max-w-lg space-y-4 rounded bg-white p-8 shadow-md lg:mx-auto lg:-mt-32 lg:p-16"
+      >
+        <h3 class="text-2xl font-bold tracking-wide">
+          NOUS GÉRONS<br />POUR VOUS...
+        </h3>
+        <div class="space-y-6">
+          <div>
+            <p class="font-semibold uppercase text-cyan-500">
+              Conception de projet
+            </p>
+            <p>
+              Nous réfléchissons avec vous à de nouveaux projets en accord avec
+              votre ligne éditoriale et le marché.
+            </p>
+          </div>
+          <div>
+            <p class="font-semibold uppercase text-blue-500">
+              Coordination éditoriale
+            </p>
+            <p>
+              Nous gérons la mise en place des équipes, les plannings et le
+              suivi de vos titres, de leur prise en charge jusqu’à la remise en
+              fabrication.
+            </p>
+          </div>
+          <div>
+            <p class="font-semibold uppercase text-indigo-500">
+              Adaptation / Traduction
+            </p>
+            <p>
+              Nous traduisons de l’anglais/l’allemand au français les ouvrages
+              achetés à un éditeur étranger et maîtrisons parfaitement les
+              règles de la coédition.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
