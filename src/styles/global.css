@@ -19,3 +19,10 @@
   --color-foreground-accent: #404040;
   --color-button: #323232;
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+  }
+}

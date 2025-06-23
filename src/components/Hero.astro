@@ -1,11 +1,66 @@
 ---
+import { Image } from "astro:assets";
+import Button from "./ui/Button.astro";
 ---
-<div class="relative">
-    <img src="/src/assets/images/banner.png" alt="hero-banner" class=" w-full h-auto z-1 object-cover" />
-    <div class="absolute top-1/2 z-2 left-1/5 -translate-x-1/5 text-neutral-950 max-w-80 mb-7">
-        <img src="/src/assets/images/logo-lunedit.png" alt="logo-lunedit" class="h-16 w-auto mb-7">
-        <p class="text-base font-medium font-base">Lunedit vous accompagne dans vos projets de livres illustrés, de la conception à l’impression.</p>
-        <p class="text-base font-medium font-base">Forts de 20 ans d’experience, nous prenons en charge la conception, la coordination éditoriale ou la traduction de vos projets.</p>
-    </div>
+
+<section id="hero" class="hero-section bg-primary relative">
+  <div class="hero-content relative z-10 space-y-8 py-32">
+    <h1 class="text-balance text-5xl font-bold lg:text-6xl">
+      Gagner du temps et de la sérénité en confiant vos projets livre à Lunedit
+    </h1>
+    <p class="font-base text-xl font-medium">
+      Lunedit vous accompagne dans vos projets de livres illustrés, de la
+      conception à l'impression.
+    </p>
+    <p class="font-base text-base font-medium">
+      Forts de 20 ans d'expérience dans l'édition et la production de livres,
+      nous prenons en charge la conception graphique, la coordination
+      éditoriale, la traduction professionnelle et la gestion complète de vos
+      projets d'édition. Spécialisés dans les livres illustrés, les ouvrages
+      jeunesse et les publications techniques, nous garantissons qualité,
+      respect des délais et expertise éditoriale.
+    </p>
+
+    <Button href="#contact" variant="secondary" size="large"
+      >Contactez-nous</Button
+    >
+  </div>
+
+  <Image
+    src="/src/assets/images/hero-banner.png"
+    alt="hero-banner"
+    width={1000}
+    height={1000}
+    class="hero-image h-full w-full object-cover object-left"
+  />
+</section>
 <!-- ajout du composant ui button -->
-</div>
+
+<style>
+  .hero-section {
+    display: grid;
+    grid-template-columns: minmax(0, min(10vw, 100px)) 2fr 3fr minmax(
+        0,
+        min(10vw, 100px)
+      );
+  }
+  .hero-content {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    place-content: center;
+  }
+  .hero-image {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    opacity: 0.25;
+  }
+  @media (width > 920px) {
+    .hero-content {
+      grid-column: 2;
+    }
+    .hero-image {
+      grid-column: 3 / -1;
+      opacity: 1;
+    }
+  }
+</style>
