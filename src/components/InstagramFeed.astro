@@ -1,45 +1,27 @@
 ---
 import Button from "../components/ui/Button.astro";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
-// Import des images optimisées
-import insta300FemmesPeintres from "../assets/images/posts/insta-300-femmes-peintres.jpg";
-import instaYokoOno from "../assets/images/posts/insta-yoko-ono.jpg";
-import instaEnglishCooking from "../assets/images/posts/insta-english-cooking.jpg";
-import instaMerciPhaidon from "../assets/images/posts/insta-merci-phaidon.jpg";
-import instaHappyNewYear from "../assets/images/posts/insta-happy-new-year.jpg";
-import instaDicteeCoquine from "../assets/images/posts/insta-dictee-coquine.jpg";
-import instaCuisinePortugal1 from "../assets/images/posts/insta-cuisine-portugal-1.jpg";
-import instaCuisinePortugal2 from "../assets/images/posts/insta-cuisine-portugal-2.jpg";
-
-const images = [
-  { src: insta300FemmesPeintres, alt: "300 femmes peintres" },
-  { src: instaYokoOno, alt: "Yoko Ono" },
-  { src: instaEnglishCooking, alt: "English cooking" },
-  { src: instaMerciPhaidon, alt: "Merci Phaidon" },
-  { src: instaHappyNewYear, alt: "Happy New Year" },
-  { src: instaDicteeCoquine, alt: "Dictée coquine" },
-  { src: instaCuisinePortugal1, alt: "Cuisine Portugal 1" },
-  { src: instaCuisinePortugal2, alt: "Cuisine Portugal 2" },
-];
+const instagramFeeds = await getCollection("instagramFeeds");
 ---
 
-<section id="dernierement" class="bg-[#4cbcb2] px-4 py-12">
+<section id="dernierement" class="bg-secondary px-4 py-12">
   <h2
     class="text-primary font-heading py-8 text-center text-2xl font-extrabold uppercase"
   >
     Dernières réalisations
   </h2>
 
-  <div>
+  <div class="mx-auto max-w-7xl">
     <div class="rounded-lg p-4">
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
         {
-          images.map(({ src, alt }) => (
+          instagramFeeds.map((feed) => (
             <div class="aspect-[1/1] w-full overflow-hidden rounded-md shadow-sm">
               <Image
-                src={src}
-                alt={`Publication Instagram - ${alt}`}
+                src={feed.data.image as ImageMetadata}
+                alt={`Publication Instagram - ${feed.data.alt}`}
                 class="h-full w-full object-cover"
                 loading="lazy"
                 format="webp"

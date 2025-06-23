@@ -38,14 +38,33 @@ import { Image } from "astro:assets";
 <script>
   const burgerMenu = document.querySelector("#menu-burger");
   const menuContainer = document.querySelector("#menu-container");
+  const links = document.querySelectorAll("#menu-container a");
+
+  function openMenu() {
+    menuContainer.classList.remove("hidden");
+    burgerMenu.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    menuContainer.classList.add("hidden");
+    burgerMenu.setAttribute("aria-expanded", "false");
+  }
+
+  function toggleMenu() {
+    const isExpanded = burgerMenu.getAttribute("aria-expanded") === "true";
+    if (isExpanded) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
   if (burgerMenu && menuContainer) {
-    burgerMenu.addEventListener("click", () => {
-      menuContainer.classList.toggle("hidden");
-      // toggle aria-expanded value on burger menu
-      burgerMenu.setAttribute(
-        "aria-expanded",
-        burgerMenu.getAttribute("aria-expanded") === "true" ? "false" : "true"
-      );
+    burgerMenu.addEventListener("click", toggleMenu);
+
+    // Fermer le menu quand on clique sur un lien
+    links.forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
   }
 </script>
