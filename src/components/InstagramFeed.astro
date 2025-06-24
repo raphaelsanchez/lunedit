@@ -10,7 +10,7 @@ const instagramFeeds = await getCollection("instagramFeeds");
   <h2 class="font-heading pb-8 text-center text-2xl font-extrabold uppercase">
     Dernières réalisations
   </h2>
-  <span class="bg-foreground mb-8 block h-1 w-10"></span>
+  <span class="bg-primary mb-8 block h-1 w-10"></span>
   <div class="mx-auto max-w-7xl">
     <div class="rounded-lg p-4">
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
@@ -38,8 +38,24 @@ const instagramFeeds = await getCollection("instagramFeeds");
           variant="primary"
           size="large"
           aria-label="Voir plus de réalisations sur Instagram"
+          class="flex items-center gap-2"
         >
-          Plus de réalisations
+          <span>Plus de réalisations</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6m-7 1l9-9m-5 0h5v5"
+            ></path></svg
+          >
         </Button>
       </div>
     </div>
