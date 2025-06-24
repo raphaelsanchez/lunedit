@@ -3,30 +3,35 @@
     "id": "cuisine",
     "title": "Cuisine",
     "image": "/src/assets/images/cuisine.png",
-    "alt": "illustration cuisine"
+    "alt": "illustration cuisine",
+    "description": "Livres de recettes & guides culinaires"
   },
   {
     "id": "langues",
     "title": "Langues",
     "image": "/src/assets/images/langues.png",
-    "alt": "illustration langues"
+    "alt": "illustration langues",
+    "description": "Méthodes & dictionnaires de langues"
   },
   {
     "id": "pratiques",
     "title": "Pratique",
     "image": "/src/assets/images/pratiques.png",
-    "alt": "illustration pratiques"
+    "alt": "illustration pratiques",
+    "description": "Guides pratiques & manuels"
   },
   {
     "id": "beau-livre",
     "title": "Beau-livre",
     "image": "/src/assets/images/beau-livre.png",
-    "alt": "illustration beau livre"
+    "alt": "illustration beau livre",
+    "description": "Livres d'art & ouvrages illustrés"
   },
   {
     "id": "jeunesse",
     "title": "Jeunesse",
     "image": "/src/assets/images/jeunesse.png",
-    "alt": "illustration jeunesse"
+    "alt": "illustration jeunesse",
+    "description": "Livres pour enfants & adolescents"
   }
 ]

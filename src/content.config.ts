@@ -17,6 +17,7 @@ const services = defineCollection({
     z.object({
       id: z.string(),
       title: z.string(),
+      description: z.string().optional(),
       alt: z.string(),
       image: image(),
     }),

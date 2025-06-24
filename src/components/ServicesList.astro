@@ -14,7 +14,16 @@ const services = await getCollection("services");
       <h2 class="font-heading text-foreground pb-8 text-2xl font-extrabold uppercase">
         Notre coeur de métier
       </h2>
-      <span class="bg-foreground mb-8 block h-1 w-10" />
+      <span class="bg-secondary mb-8 block h-1 w-10" />
+
+      <p class="text-foreground mb-12 max-w-3xl text-center text-lg leading-relaxed">
+        Le <strong>packaging éditorial</strong> est notre spécialité. Nous
+        transformons vos idées en livres prêts pour l'impression en orchestrant
+        l'ensemble du processus : de la conception initiale à la remise en
+        fabrication, en passant par la coordination des équipes créatives et le
+        suivi qualité.
+      </p>
+
       <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 ">
         {services.map((service) => (
           <div class="flex flex-col items-center gap-4">
@@ -27,6 +36,9 @@ const services = await getCollection("services");
             />
             <p class="font-heading text-foreground text-base font-bold uppercase">
               {service.data.title}
+            </p>
+            <p class="text-foreground text-pretty text-center text-sm leading-relaxed">
+              {service.data?.description ?? ""}
             </p>
           </div>
         ))}
