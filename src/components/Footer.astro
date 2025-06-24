@@ -11,7 +11,7 @@ const { address, mail, phone } = data.contact;
 
 <footer
   id="contact"
-  class="bg-primary text-foreground-accent"
+  class="bg-primary text-primary-foreground"
   role="contentinfo"
   aria-label="Pied de page"
 >
@@ -46,7 +46,7 @@ const { address, mail, phone } = data.contact;
         data.social.length > 0 && (
           <div class="flex flex-col items-center gap-4">
             <h2 class="font-bold uppercase">Retrouvez-nous sur</h2>
-            <SocialNetworks items={data.social} size={48} />
+            <SocialNetworks items={data.social} size={32} />
           </div>
         )
       }

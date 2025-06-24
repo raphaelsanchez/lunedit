@@ -12,7 +12,7 @@ import { Image } from "astro:assets";
 
 <header
   id="top-page"
-  class="bg-secondary z-50 w-full px-4 py-2 text-white max-lg:relative lg:sticky lg:top-0 lg:py-4"
+  class="bg-secondary z-50 w-full px-4 py-2 max-lg:relative lg:sticky lg:top-0 lg:py-4"
 >
   <div class="mx-auto flex w-full max-w-7xl items-center justify-between">
     <a
@@ -20,7 +20,18 @@ import { Image } from "astro:assets";
       class="rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
       aria-label="Accéder à la page d'accueil"
     >
-      <Image src={logoImage} width={150} height={52} alt="Logo de Lunedit" />
+      <Image
+        src={logoImage}
+        width={150}
+        height={53}
+        alt="Logo de Lunedit"
+        format="webp"
+        quality={90}
+        loading="eager"
+        decoding="async"
+        densities={[1, 2]}
+        sizes="150px"
+      />
     </a>
 
     <Burger id="menu-burger" />
