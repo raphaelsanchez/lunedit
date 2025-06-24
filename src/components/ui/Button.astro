@@ -1,0 +1,45 @@
+---
+interface ButtonProps {
+  variant?: "primary" | "secondary" | "tertiary";
+  size?: "small" | "medium" | "large";
+  class?: string;
+  href?: string;
+}
+
+const {
+  variant = "primary",
+  size = "medium",
+  class: $class = "",
+  href,
+  ...props
+}: ButtonProps = Astro.props;
+
+const sizes = {
+  small: "px-3 py-1 text-sm",
+  medium: "px-5 py-2 text-base",
+  large: "px-6 py-3 text-lg",
+};
+
+function cls(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
+const base =
+  "inline-flex items-center justify-center font-bold text-center no-underline select-none rounded-full uppercase text-sm tracking-wide";
+
+const variants = {
+  primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
+  outline: "border-2 hover:bg-neutral-950/10 text-neutral-950",
+};
+
+const Component = href ? "a" : "button";
+---
+
+<Component
+  class={cls(base, variants[variant], sizes[size], $class)}
+  href={href}
+  {...props}
+>
+  <slot />
+</Component>

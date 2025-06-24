@@ -1,0 +1,76 @@
+---
+import { getImage, Image } from "astro:assets";
+import Button from "./ui/Button.astro";
+
+import heroBannerImage from "../assets/images/hero-banner.png";
+
+// add hero image to prefetch
+const heroImage = await getImage({ src: heroBannerImage, format: "webp" });
+---
+
+<header id="hero" class="hero-section bg-primary relative">
+  <div class="hero-content relative z-10 space-y-8 py-32">
+    <h1 class="text-balance text-5xl font-bold lg:text-6xl">
+      Gagner du temps et de la sérénité en confiant vos projets livre à Lunedit
+    </h1>
+    <p class="font-base text-xl font-medium">
+      Lunedit vous accompagne dans vos projets de livres illustrés, de la
+      conception à l'impression.
+    </p>
+    <p class="font-base text-base font-medium">
+      Forts de 20 ans d'expérience dans l'édition et la production de livres,
+      nous prenons en charge la conception graphique, la coordination
+      éditoriale, la traduction professionnelle et la gestion complète de vos
+      projets d'édition. Spécialisés dans les livres illustrés, les ouvrages
+      jeunesse et les publications techniques, nous garantissons qualité,
+      respect des délais et expertise éditoriale.
+    </p>
+
+    <Button href="#contact" variant="secondary" size="large"
+      >Contactez-nous</Button
+    >
+  </div>
+
+  <Image
+    src={heroImage.src}
+    alt="hero-banner"
+    width={1000}
+    height={1000}
+    decoding="async"
+    format="webp"
+    quality={80}
+    widths={[1000, 1500, 2000]}
+    sizes="(max-width: 768px) 1000px, 1500px"
+    class="hero-image h-full w-full object-cover object-left"
+  />
+</header>
+<!-- ajout du composant ui button -->
+
+<style>
+  .hero-section {
+    display: grid;
+    grid-template-columns: minmax(0, min(10vw, 100px)) 2fr 3fr minmax(
+        0,
+        min(10vw, 100px)
+      );
+  }
+  .hero-content {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    place-content: center;
+  }
+  .hero-image {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    opacity: 0.25;
+  }
+  @media (width > 920px) {
+    .hero-content {
+      grid-column: 2;
+    }
+    .hero-image {
+      grid-column: 3 / -1;
+      opacity: 1;
+    }
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const partners = await getCollection("partners");
+---
+
+{
+  partners && (
+    <section class="bg-background mx-auto max-w-7xl justify-items-center px-4 py-32">
+      <h2 class="font-heading text-foreground pb-8 text-2xl font-extrabold uppercase">
+        Ils nous font confiance
+      </h2>
+      <span class="bg-secondary mb-8 block h-1 w-10" />
+      <div class="grid grid-cols-3 gap-x-4 pb-4 md:pb-0 lg:grid-cols-5">
+        {partners.map((partner, index) => (
+          <div class="flex flex-shrink-0 items-center justify-center md:flex-shrink">
+            <Image
+              src={partner.data.image as ImageMetadata}
+              alt={partner.data.alt}
+              width={150}
+              height={150}
+              loading={index < 6 ? "eager" : "lazy"}
+              decoding="async"
+              format="webp"
+              quality={75}
+              widths={[100, 150, 200]}
+              sizes="(max-width: 768px) 100px, 150px"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,25 @@
+{
+  "navigation": [
+    {
+      "label": "Lunedit",
+      "url": "#hero"
+    },
+    {
+      "label": "A propos",
+      "url": "#a-propos"
+    },
+
+    {
+      "label": "Nos services",
+      "url": "#services"
+    },
+    {
+      "label": "Dernièrement",
+      "url": "#dernierement"
+    },
+    {
+      "label": "Contact",
+      "url": "#contact"
+    }
+  ]
+}
