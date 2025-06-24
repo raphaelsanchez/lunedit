@@ -25,13 +25,12 @@ function cls(...classes: string[]) {
 }
 
 const base =
-  "inline-flex items-center justify-center font-medium text-center no-underline select-none rounded-xl";
+  "inline-flex items-center justify-center font-bold text-center no-underline select-none rounded-full uppercase text-sm tracking-wide";
 
 const variants = {
   primary: "bg-primary text-primary-foreground hover:bg-primary/90",
   secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
-  outline:
-    "border border-primary text-primary hover:bg-primary hover:text-primary-foreground",
+  outline: "border-2 hover:bg-neutral-950/10 text-neutral-950",
 };
 
 const Component = href ? "a" : "button";

@@ -7,15 +7,15 @@
 
   /* Colors */
   --color-primary: #ffe500;
-  --color-primary-foreground: #243954;
-  --color-secondary: #4ec2b2;
-  --color-secondary-foreground: #ffffff;
+  --color-primary-foreground: var(--color-neutral-950);
+  --color-secondary: #72b6ad;
+  --color-secondary-foreground: var(--color-neutral-950);
   --color-secondary-accent: #109eeb;
   --color-secondary-accent-dark: #0f6d99;
 
   --color-background: #ffffff;
 
-  --color-foreground: #243954;
+  --color-foreground: var(--color-neutral-950);
   --color-foreground-accent: #404040;
   --color-button: #323232;
 }
@@ -24,5 +24,38 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 84px;
+  }
+
+  /* Optimisations de performance */
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Règle pour éviter l'avertissement sur les h1 */
+  h1 {
+    font-size: 2.25rem; /* 36px - taille par défaut si aucune classe n'est appliquée */
+    line-height: 2.5rem;
+    font-weight: 700;
+  }
+
+  /* Optimisation du rendu */
+  .hero-section,
+  .hero-content,
+  .hero-image {
+    will-change: transform;
+  }
+
+  /* Optimisation des animations */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

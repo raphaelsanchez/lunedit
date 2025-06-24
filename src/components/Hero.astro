@@ -1,9 +1,14 @@
 ---
-import { Image } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import Button from "./ui/Button.astro";
+
+import heroBannerImage from "../assets/images/hero-banner.png";
+
+// add hero image to prefetch
+const heroImage = await getImage({ src: heroBannerImage, format: "webp" });
 ---
 
-<section id="hero" class="hero-section bg-primary relative">
+<header id="hero" class="hero-section bg-primary relative">
   <div class="hero-content relative z-10 space-y-8 py-32">
     <h1 class="text-balance text-5xl font-bold lg:text-6xl">
       Gagner du temps et de la sérénité en confiant vos projets livre à Lunedit
@@ -27,13 +32,18 @@ import Button from "./ui/Button.astro";
   </div>
 
   <Image
-    src="/src/assets/images/hero-banner.png"
+    src={heroImage.src}
     alt="hero-banner"
     width={1000}
     height={1000}
+    decoding="async"
+    format="webp"
+    quality={80}
+    widths={[1000, 1500, 2000]}
+    sizes="(max-width: 768px) 1000px, 1500px"
     class="hero-image h-full w-full object-cover object-left"
   />
-</section>
+</header>
 <!-- ajout du composant ui button -->
 
 <style>
