@@ -7,6 +7,9 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://raphaelsanchez.github.io",
+  base: "lunedit",
+
   vite: {
     plugins: [tailwindcss()],
   },
