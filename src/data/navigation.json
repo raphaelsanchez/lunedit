@@ -1,11 +1,7 @@
 {
   "navigation": [
     {
-      "label": "Lunedit",
-      "url": "#hero"
-    },
-    {
-      "label": "A propos",
+      "label": "À propos",
       "url": "#a-propos"
     },
 
