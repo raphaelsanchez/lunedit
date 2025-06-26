@@ -1,17 +1,15 @@
 ---
-import { getImage, Image } from "astro:assets";
 import Button from "./ui/Button.astro";
 
-import heroBannerImage from "../assets/images/hero-banner.png";
-
-// add hero image to prefetch
-const heroImage = await getImage({ src: heroBannerImage, format: "webp" });
+import heroBannerImage from "../assets/images/lunedit-cover.svg";
+import { Image } from "astro:assets";
 ---
 
 <header id="hero" class="hero-section bg-primary relative">
   <div class="hero-content relative z-10 space-y-8 py-32">
     <h1 class="text-balance text-5xl font-bold lg:text-6xl">
-      Gagner du temps et de la sérénité en confiant vos projets livre à Lunedit
+      Gagner du temps et de la sérénité en confiant vos projets de livres à
+      Lunedit
     </h1>
     <p class="font-base text-xl font-medium">
       Lunedit vous accompagne dans vos projets de livres illustrés, de la
@@ -31,28 +29,25 @@ const heroImage = await getImage({ src: heroBannerImage, format: "webp" });
     >
   </div>
 
-  <Image
-    src={heroImage.src}
-    alt="hero-banner"
-    width={1000}
-    height={1000}
-    decoding="async"
-    format="webp"
-    quality={80}
-    widths={[1000, 1500, 2000]}
-    sizes="(max-width: 768px) 1000px, 1500px"
-    class="hero-image h-full w-full object-cover object-left"
-  />
+  <div class="hero-image">
+    <Image
+      src={heroBannerImage}
+      alt="Bannière hero de Lunedit - Services d'édition et de production de livres"
+      class="h-full w-full object-cover object-left"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
 </header>
-<!-- ajout du composant ui button -->
 
 <style>
   .hero-section {
     display: grid;
-    grid-template-columns: minmax(0, min(10vw, 100px)) 2fr 3fr minmax(
-        0,
-        min(10vw, 100px)
-      );
+    grid-template-columns:
+      minmax(0, min(12vw, 300px))
+      1fr
+      1fr
+      minmax(0, min(12vw, 300px));
   }
   .hero-content {
     grid-column: 2 / 4;
