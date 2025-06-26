@@ -5,6 +5,7 @@ import ContactInfo from "./ContactInfo.astro";
 import data from "../data/infoGeneral.json";
 import { Image } from "astro:assets";
 import jaguar from "../assets/images/jaguar.png";
+import { Picture } from "astro:assets";
 
 const { address, mail, phone } = data.contact;
 ---
@@ -28,11 +29,17 @@ const { address, mail, phone } = data.contact;
       <div
         class="flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-10"
       >
-        <Image
+        <Picture
           src={jaguar}
           alt="Logo Lunedit - illustration jaguar"
           class="h-24 w-auto shrink-0 md:h-32"
           loading="lazy"
+          formats={["avif", "webp", "jpeg"]}
+          width={100}
+          height={100}
+          sizes="(max-width: 720px) 100px, 150px"
+          decoding="async"
+          quality={80}
         />
         <ContactInfo
           address={address}
