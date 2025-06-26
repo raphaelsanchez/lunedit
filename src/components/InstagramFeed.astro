@@ -1,5 +1,6 @@
 ---
 import Button from "../components/ui/Button.astro";
+import { Picture } from "astro:assets";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
@@ -17,14 +18,16 @@ const instagramFeeds = await getCollection("instagramFeeds");
         {
           instagramFeeds.map((feed) => (
             <div class="aspect-[1/1] w-full overflow-hidden rounded-md shadow-sm">
-              <Image
+              <Picture
                 src={feed.data.image as ImageMetadata}
                 alt={`Publication Instagram - ${feed.data.alt}`}
                 class="h-full w-full object-cover"
                 loading="lazy"
-                format="webp"
+                formats={["avif", "webp", "jpeg"]}
+                decoding="async"
                 quality={80}
-                widths={[300, 600]}
+                width={300}
+                height={300}
                 sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
               />
             </div>
