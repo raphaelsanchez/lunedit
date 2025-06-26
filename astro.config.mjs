@@ -8,8 +8,8 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   ...(process.env.NODE_ENV !== "development" && {
-    site: "https://raphaelsanchez.github.io",
-    base: "/lunedit",
+    site: "https://lunedit.netlify.app/",
+    base: "/",
   }),
 
   vite: {
