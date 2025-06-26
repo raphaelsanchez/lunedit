@@ -1,5 +1,4 @@
 ---
-import { Picture } from "astro:assets";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
@@ -16,18 +15,17 @@ const partners = await getCollection("partners");
       <div class="grid grid-cols-3 gap-x-4 pb-4 md:pb-0 lg:grid-cols-5">
         {partners.map((partner, index) => (
           <div class="flex flex-shrink-0 items-center justify-center md:flex-shrink">
-            <Picture
+            <Image
               src={partner.data.image as ImageMetadata}
               alt={partner.data.alt}
               width={150}
               height={150}
-              formats={["avif", "webp", "jpeg"]}
-              width={300}
-              height={300}
-              sizes="(max-width: 720px) 200px, 300px"
               loading="lazy"
               decoding="async"
+              format="webp"
               quality={75}
+              widths={[100, 150, 200]}
+              sizes="(max-width: 768px) 100px, 150px"
             />
           </div>
         ))}
