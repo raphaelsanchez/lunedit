@@ -7,7 +7,7 @@ import logoImage from "../assets/images/logo-lunedit.png";
 import { navigation } from "../data/navigation.json";
 import { social } from "../data/infoGeneral.json";
 
-import { Image, Picture } from "astro:assets";
+import { Image } from "astro:assets";
 
 const isHome = Astro.url.pathname === "/";
 ---
@@ -21,17 +21,15 @@ const isHome = Astro.url.pathname === "/";
       class="rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
       aria-label="Accéder à la page d'accueil"
     >
-      <Picture
+      <Image
         src={logoImage}
         width={150}
         height={53}
         alt="Logo de Lunedit"
-        formats={["avif", "webp", "jpeg"]}
-        width={150}
-        height={53}
-        sizes="(max-width: 720px) 150px, 150px"
+        format="webp"
+        loading="eager"
         decoding="async"
-        quality={80}
+        sizes="(max-width: 720px) 150px, 150px"
       />
     </a>
 
