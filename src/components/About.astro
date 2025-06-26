@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import office from "../assets/images/banner2.jpg";
 import Button from "./ui/Button.astro";
 ---
@@ -7,14 +7,17 @@ import Button from "./ui/Button.astro";
 <section id="a-propos" class="bg-primary pb-16 text-gray-900 lg:pb-32">
   <div class="mx-auto max-w-7xl">
     <div class="border-secondary aspect-[16/9] max-w-4xl border-t-4">
-      <Picture
+      <Image
         src={office}
         alt="Vue bureau"
-        class="h-full w-full object-cover"
-        formats={["avif", "webp", "jpeg"]}
+        loading="lazy"
+        decoding="async"
+        format="webp"
+        quality={80}
         width={900}
         height={500}
         sizes="(max-width: 768px) 460px, 900px"
+        class="h-full w-full object-cover"
       />
     </div>
 
@@ -25,8 +28,8 @@ import Button from "./ui/Button.astro";
         </h2>
         <div class="bg-secondary mb-8 h-0.5 w-8"></div>
         <p class="mb-6 max-w-prose">
-          Avec 20 ans d'expérience dans l'édition de livres illustrés, en tant
-          qu'éditrice dans le livre pratique, puis à la direction éditoriale de
+          Avec 20 ans d’expérience dans l’édition de livres illustrés, en tant
+          qu’éditrice dans le livre pratique, puis à la direction éditoriale de
           Céladon éditions, Lucie Nédellec a créé LUNEDIT pour répondre au mieux
           à vos attentes.
         </p>
@@ -39,13 +42,14 @@ import Button from "./ui/Button.astro";
           <ul>
             <li>
               <strong class="text-xl">60 collaborateurs</strong> : traducteurs, graphistes,
-              relecteurs...
+              illustrateurs...
             </li>
             <li>
               <strong class="text-xl">15 clients fidèles</strong> qui nous font confiance
             </li>
             <li>
-              <strong class="text-xl">+100 projets par an</strong> de livres de qualité
+              <strong class="text-xl">+100 projets par an</strong> pour des livres
+              de qualité
             </li>
           </ul>
         </p>
@@ -53,7 +57,7 @@ import Button from "./ui/Button.astro";
 
       <!-- Bloc "Nous gérons pour vous" -->
       <div
-        class="mx-4 space-y-6 rounded bg-white p-8 shadow-md md:-mt-32 md:max-w-lg lg:mx-auto lg:p-16"
+        class="mx-4 max-w-lg space-y-6 rounded bg-white p-8 shadow-md lg:mx-auto lg:-mt-32 lg:p-16"
       >
         <h3 class="text-2xl font-black tracking-wide">
           NOUS GÉRONS<br />POUR VOUS...
@@ -71,14 +75,14 @@ import Button from "./ui/Button.astro";
             <p class="font-semibold uppercase">Coordination éditoriale</p>
             <p>
               Nous gérons la mise en place des équipes, les plannings et le
-              suivi de vos titres, de leur prise en charge jusqu'à la remise en
+              suivi de vos titres, de leur prise en charge jusqu’à la remise en
               fabrication.
             </p>
           </div>
           <div>
             <p class="font-semibold uppercase">Adaptation / Traduction</p>
             <p>
-              Nous traduisons de l'anglais/l'allemand au français les ouvrages
+              Nous traduisons de l’anglais/l’allemand au français les ouvrages
               achetés à un éditeur étranger et maîtrisons parfaitement les
               règles de la coédition.
             </p>
