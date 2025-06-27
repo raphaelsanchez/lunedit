@@ -18,20 +18,20 @@
     "title": "Pratique",
     "image": "/src/assets/images/pratiques.png",
     "alt": "illustration pratiques",
-    "description": "Livres pratiques : jardin, cuisine, sport..."
+    "description": "Livres pratiques : jardin, cuisine, sport, loisirs créatifs..."
   },
   {
     "id": "beau-livre",
     "title": "Beau-livre",
     "image": "/src/assets/images/beau-livre.png",
     "alt": "illustration beau livre",
-    "description": "Livres d'art & ouvrages illustrés"
+    "description": "Art, photographie, architecture, design, mode..."
   },
   {
     "id": "jeunesse",
     "title": "Jeunesse",
     "image": "/src/assets/images/jeunesse.png",
     "alt": "illustration jeunesse",
-    "description": "Livres pour enfants & adolescents"
+    "description": "Livres pour enfants & adolescents, documentaires, encyclopédies..."
   }
 ]
