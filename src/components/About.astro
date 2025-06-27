@@ -97,8 +97,7 @@ import Button from "./ui/Button.astro";
   section {
     position: relative;
   }
-  section::before,
-  section::after {
+  section::before {
     content: "";
     width: 40%;
     height: 4px;
@@ -108,9 +107,5 @@ import Button from "./ui/Button.astro";
   section::before {
     right: 0;
     top: 0;
-  }
-  section::after {
-    left: 0;
-    bottom: 0;
   }
 </style>
