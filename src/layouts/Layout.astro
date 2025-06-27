@@ -75,6 +75,34 @@ const structuredData = {
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Open Graph -->
+    <meta
+      property="og:site_name"
+      content={infoGeneral.site?.name || "Lunedit"}
+    />
+    <meta property="og:title" content={infoGeneral.site?.name || "Lunedit"} />
+    <meta
+      property="og:description"
+      content={infoGeneral.site?.description ||
+        "Packaging éditorial Rouen / Paris"}
+    />
+    <meta
+      property="og:url"
+      content={infoGeneral.site?.url || "https://www.lunedit.com/"}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta
+      property="og:image"
+      content={infoGeneral.site?.ogImage || "/favicon.svg"}
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content={infoGeneral.site?.ogImageAlt || "Lunedit"}
+    />
+
     <!-- Données structurées pour le SEO -->
     <script
       type="application/ld+json"
